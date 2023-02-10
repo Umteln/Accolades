@@ -10,16 +10,19 @@ const DragImage = ({ source, id }) => {
 			isDragging: !!monitor.isDragging(),
 		}),
 	}));
-
+	if (isDragging) {
+		console.log(id);
+	}
 	return (
 		<Image
 			ref={drag}
 			src={source}
 			alt='/'
-			class={
+			width='150'
+			className={
 				isDragging
-					? 'border-solid-[1px] border-purple-800 rounded-t-lg block m-auto max-w-[100%] w-[200px] h-[215px]'
-					: 'rounded-t-lg block m-auto max-w-[100%] w-[200px] h-[215px]'
+					? ' rounded-t-lg block m-auto max-w-[100%] w-[200px] h-[200px]'
+					: 'rounded-t-lg block m-auto max-w-[100%] w-[200px] h-[200px]'
 			}
 		/>
 	);

@@ -1,21 +1,9 @@
 import { filteredPictureListAtom } from '@/recoil/atoms';
 import { useState } from 'react';
 import { useDrop } from 'react-dnd';
-
 import { useRecoilValue } from 'recoil';
 import DragImage from './DragImage';
 
-const style = {
-	margin: 'auto',
-	display: 'block',
-	maxWidth: '100%',
-	maxHeight: '100%',
-	backgroundColor: 'lightgray',
-	width: '100%',
-	height: '100%',
-	justifyContent: 'center',
-	alignItems: 'center',
-};
 const DropBox = () => {
 	const [board, setBoard] = useState([]);
 	const filteredPictureList = useRecoilValue(filteredPictureListAtom);
@@ -29,15 +17,18 @@ const DropBox = () => {
 	}));
 
 	const addImageToBoard = (id) => {
-		const imageList = filteredPictureList.filter(
-			(picture) => id === picture.id
-		);
-
-		setBoard([imageList[0]]);
+		const pictureList = filteredPictureList.filter((image) => id === image.id);
+		setBoard((board) => [...board, pictureList[0]]);
+		// setBoard([pictureList[0]]);
+		
 	};
-
+	console.log(board)
 	return (
-		<div ref={drop}>
+		<>
+		<div
+			className='bg-gray-100 w-[200px] h-[200px] m-auto ml-2 rounded-lg shadow-xl  shadow-gray-400 '
+			ref={drop}
+		>
 			{board.map((image) => (
 				<DragImage
 					key={image.id}
@@ -46,6 +37,9 @@ const DropBox = () => {
 				/>
 			))}
 		</div>
+		
+		</>
+		
 	);
 };
 export default DropBox;
