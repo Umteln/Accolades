@@ -6,6 +6,8 @@ import { FiSettings } from 'react-icons/fi';
 import { FaChild } from 'react-icons/fa';
 import { AiOutlineUpload } from 'react-icons/ai';
 const Sidebar = ({ children }) => {
+
+
 	return (
 		<div className='flex'>
 			<div className='fixed w-20 h-screen p-4 bg-white border-r-[1px] flex flex-col justify-between'>

@@ -21,8 +21,8 @@ const DragImage = ({ source, id }) => {
 			width='150'
 			className={
 				isDragging
-					? ' rounded-t-lg block m-auto max-w-[100%] w-[200px] h-[200px]'
-					: 'rounded-t-lg block m-auto max-w-[100%] w-[200px] h-[200px]'
+					? ' border-xl shadow-purple-800 rounded-t-lg block m-auto max-w-[100%] w-[150px] h-[150px]'
+					: 'rounded-t-lg block m-auto max-w-[100%] w-[150px] h-[150px]'
 			}
 		/>
 	);

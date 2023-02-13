@@ -4,8 +4,8 @@ import { useDrop } from 'react-dnd';
 import { useRecoilValue } from 'recoil';
 import DragImage from './DragImage';
 
-const DropBox = () => {
-	const [board, setBoard] = useState([]);
+const DropBox = ({board, setBoard}) => {
+	// const [board, setBoard] = useState([]);
 	const filteredPictureList = useRecoilValue(filteredPictureListAtom);
 
 	const [{ isOver }, drop] = useDrop(() => ({
@@ -25,16 +25,20 @@ const DropBox = () => {
 	console.log(board)
 	return (
 		<>
+
 		<div
-			className='bg-gray-100 w-[200px] h-[200px] m-auto ml-2 rounded-lg shadow-xl  shadow-gray-400 '
+			className='lg:col-span-2 col-span-1 bg-gray-100 flex justify-between w-full h-[180px] border p-4 rounded-lg'
 			ref={drop}
 		>
 			{board.map((image) => (
-				<DragImage
-					key={image.id}
-					id={image.id}
-					source={image.source}
-				/>
+				<div key={image.id} className=' justify-center items-center m-auto rounded-lg shadow-xl border-solid border-4 border-purple-300 '>
+					<DragImage
+						id={image.id}
+						source={image.source}
+					/>
+				
+				</div>
+				
 			))}
 		</div>
 		

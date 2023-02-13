@@ -1,6 +1,6 @@
 import BoardContainer from '@/components/BoardContainer';
 import Header from '@/components/Header';
-import Sidebar from '@/components/Sidebar';
+
 import TaskChoices from '@/components/TaskChoices';
 import TopCards from '@/components/TopCards';
 import Head from 'next/head';
@@ -25,9 +25,8 @@ export default function Home() {
 			</Head>
 			<main className='bg-gray-100 min-h-screen'>
 				<Header />
-				<TopCards />
-
-				<div className='grid md:gri-cols-3 grid-cols-1 gap-4 p-4'>
+				<TopCards/>
+				<div className='grid lg:grid-cols-3 gap-4 p-4'>
 					<BoardContainer />
 					<TaskChoices />
 				</div>
