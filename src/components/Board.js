@@ -22,10 +22,10 @@ const Board = () => {
 				</div>
 			</div>
 			
-				<DropBox
+				{/* <DropBox
 					board={board}
 					setBoard={setBoard}
-				/>
+				/> */}
 			
 		</div>
 	);

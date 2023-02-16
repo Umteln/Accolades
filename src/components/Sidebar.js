@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { RxSketchLogo, RxDashboard, RxPerson } from 'react-icons/rx';
-import { MdOutlineNote } from 'react-icons/md';
 import { FiSettings } from 'react-icons/fi';
 import { FaChild } from 'react-icons/fa';
 import { AiOutlineUpload } from 'react-icons/ai';

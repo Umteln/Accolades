@@ -1,49 +1,39 @@
-import { filteredPictureListAtom } from '@/recoil/atoms';
-import { useState } from 'react';
 import { useDrop } from 'react-dnd';
-import { useRecoilValue } from 'recoil';
-import DragImage from './DragImage';
+import TaskCard from './TaskCard';
 
-const DropBox = ({board, setBoard}) => {
-	// const [board, setBoard] = useState([]);
-	const filteredPictureList = useRecoilValue(filteredPictureListAtom);
-
+const DropBox = ({ board, setBoard, data }) => {
 	const [{ isOver }, drop] = useDrop(() => ({
-		accept: 'image',
-		drop: (item) => addImageToBoard(item.id),
+		accept: 'task',
+		drop: (item) => addTaskToBoard(item.id),
 		collect: (monitor) => ({
 			isOver: !!monitor.isOver(),
 		}),
 	}));
 
-	const addImageToBoard = (id) => {
-		const pictureList = filteredPictureList.filter((image) => id === image.id);
-		setBoard((board) => [...board, pictureList[0]]);
-		// setBoard([pictureList[0]]);
-		
+	const addTaskToBoard = (id) => {
+		let tempArr = [];
+		const taskList = data.filter((task) => id === task.id);
+		tempArr.push(taskList[0]);
+		setBoard(tempArr);
 	};
-	console.log(board)
+	console.log(board);
+
 	return (
 		<>
-
-		<div
-			className='lg:col-span-2 col-span-1 bg-gray-100 flex justify-between w-full h-[180px] border p-4 rounded-lg'
-			ref={drop}
-		>
-			{board.map((image) => (
-				<div key={image.id} className=' justify-center items-center m-auto rounded-lg shadow-xl border-solid border-4 border-purple-300 '>
-					<DragImage
-						id={image.id}
-						source={image.source}
-					/>
-				
-				</div>
-				
-			))}
-		</div>
-		
+			<div
+				className='bg-purple-200  h-full rounded-lg mb-4 '
+				ref={drop}
+			>
+				{board &&
+					board.map((task) => (
+						<TaskCard
+							key={task.id}
+							task={task}
+							id={task.id}
+						/>
+					))}
+			</div>
 		</>
-		
 	);
 };
 export default DropBox;
