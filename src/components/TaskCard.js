@@ -14,9 +14,9 @@ const TaskCard = ({ task, id }) => {
 	return (
 		<div
 			ref={drag}
-			className='bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 flex items-center cursor-pointer'
+			className='bg-gray-50 hover:bg-gray-100 rounded-lg  p-2 flex items-center cursor-pointer'
 		>
-			<div className='bg-purple-200 hover:bg-purple-300 cursor-pointer rounded-lg p-3'>
+			<div className='bg-purple-200 hover:bg-purple-300 cursor-pointer rounded-lg'>
 				<BiTask />
 			</div>
 			<div className='flex'>

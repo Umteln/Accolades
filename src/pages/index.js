@@ -28,7 +28,7 @@ export default function Home() {
 				<TopCards/>
 				<div className='grid lg:grid-cols-3 gap-4 p-4'>
 					<BoardContainer />
-					<TaskChoices />
+				
 				</div>
 			</main>
 		</>

@@ -21,7 +21,7 @@ const DropBox = ({ board, setBoard, data }) => {
 	return (
 		<>
 			<div
-				className='bg-purple-200  h-full rounded-lg mb-4 '
+				className='bg-purple-200  h-[50px] p-1 rounded-lg  '
 				ref={drop}
 			>
 				{board &&
