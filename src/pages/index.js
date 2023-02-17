@@ -26,7 +26,7 @@ export default function Home() {
 			<main className='bg-gray-100 min-h-screen'>
 				<Header />
 				<TopCards/>
-				<div className='grid lg:grid-cols-3 gap-4 p-4'>
+				<div className='grid lg:grid-cols-1 gap-4 p-4'>
 					<BoardContainer />
 				
 				</div>

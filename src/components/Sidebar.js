@@ -1,12 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { RxSketchLogo, RxDashboard, RxPerson } from 'react-icons/rx';
+import { RxSketchLogo, RxDashboard } from 'react-icons/rx';
 import { FiSettings } from 'react-icons/fi';
 import { FaChild } from 'react-icons/fa';
 import { AiOutlineUpload } from 'react-icons/ai';
 const Sidebar = ({ children }) => {
-
-
 	return (
 		<div className='flex'>
 			<div className='fixed w-20 h-screen p-4 bg-white border-r-[1px] flex flex-col justify-between'>
@@ -17,22 +15,30 @@ const Sidebar = ({ children }) => {
 						</div>
 					</Link>
 					<span className='border-b-[1px] border-gray-200 w-full p-2'></span>
-					<Link href='/Boards'>
+					<Link href='/'>
+						{' '}
+						{/*  saved boards */}
 						<div className='bg-purple-200 hover:bg-purple-300 cursor-pointer my-4 p-3 rounded-lg inline-block'>
 							<RxDashboard size={20} />
 						</div>
 					</Link>
-					<Link href='/Children'>
+					<Link href='/'>
+						{' '}
+						{/*  children */}
 						<div className='bg-purple-200 hover:bg-purple-300 cursor-pointer my-4 p-3 rounded-lg inline-block'>
 							<FaChild size={20} />
 						</div>
 					</Link>
-					<Link href='/Upload'>
+					<Link href='/'>
+						{' '}
+						{/*  add tasks or goals */}
 						<div className='bg-purple-200 hover:bg-purple-300 cursor-pointer my-4 p-3 rounded-lg inline-block'>
 							<AiOutlineUpload size={20} />
 						</div>
 					</Link>
-					<Link href='/Settings'>
+					<Link href='/'>
+						{' '}
+						{/*  settings */}
 						<div className='bg-purple-200 hover:bg-purple-300 cursor-pointer my-4 p-3 rounded-lg inline-block'>
 							<FiSettings size={20} />
 						</div>
