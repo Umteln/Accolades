@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { taskchoices } from '@/utils/taskArray';
+import { goalchoices } from '@/utils/taskArray';
 import TaskCard from './TaskCard';
-import useTextContext from '@/hooks/useTaskContext';
 
-const TaskChoices = () => {
-    const { clearTasks } = useTextContext();
+const GoalChoices = ({ handleReset }) => {
     const [show, setShow] = useState(false);
 
     const handleShow = () => {
@@ -12,7 +10,7 @@ const TaskChoices = () => {
     };
     return (
         <div className=''>
-            <div className='flex'>
+            <div className='flex mt-8'>
                 <button
                     onClick={handleShow}
                     className={
@@ -21,10 +19,10 @@ const TaskChoices = () => {
                             : 'w-[25%] bg-blue-300 rounded-lg  hover:bg-blue-400 cursor-pointer p-2  text-xl font-bold inline-block text-gray-600 m-auto'
                     }
                 >
-                    {show ? 'Close Task Box' : 'Task'}
+                    {show ? 'Close ' : 'Goal'}
                 </button>
                 <button
-                    onClick={clearTasks}
+                    onClick={handleReset}
                     className='w-[25%] bg-blue-300 rounded-lg  hover:bg-blue-400 cursor-pointer p-2  text-xl font-bold inline-block text-gray-600 m-auto'
                 >
                     Reset
@@ -33,19 +31,22 @@ const TaskChoices = () => {
 
             {show && (
                 <div className='flex flex-col  '>
-                    <div className='col-span-1 relative lg:h-[30vh] h-[25vh] my-1 p-4 border rounded-lg bg-green-100 overflow-y-scroll'>
-                        {taskchoices.map((task) => (
+                    <div className='col-span-1  relative lg:h-[30vh] h-[25vh] my-1 p-4 border rounded-lg bg-green-100 overflow-y-scroll'>
+                        {goalchoices.map((goal) => (
                             <TaskCard
-                                key={task.id}
-                                task={task}
-                                id={task.id}
+                                key={goal.id}
+                                task={goal}
+                                id={goal.id}
                             />
                         ))}
                     </div>
                 </div>
             )}
+            <button className='bg-green-300 rounded-lg hover:bg-green-400 mt-20 cursor-pointer p-3 w-full text-xl font-bold inline-block text-gray-600 '>
+                Need a break?
+            </button>
         </div>
     );
 };
 
-export default TaskChoices;
+export default GoalChoices;
